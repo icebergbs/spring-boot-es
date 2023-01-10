@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-public class SearchController {
+public class C_4_SearchController {
 
     @Autowired
     SearchFunctionService searchFunctionService;
@@ -43,6 +43,36 @@ public class SearchController {
         }else{
             return "no data.";
         }
+    }
+
+    @RequestMapping(value = "/testMatchAllSearch")
+    public String fetmatchAllSearchchSource()throws  Exception{
+        searchFunctionService.matchAllSearch( );
+        return "success";
+    }
+
+    @RequestMapping(value = "/testTermDateSearch")
+    public String termDateSearch()throws  Exception{
+        searchFunctionService.termDateSearch();
+        return "success";
+    }
+
+    @RequestMapping(value = "/testTermsSearch")
+    public String termsSearch()throws  Exception{
+        searchFunctionService.termsSearch();
+        return "success";
+    }
+
+    @RequestMapping(value = "/testRangeSearch")
+    public String rangeSearch()throws  Exception{
+        searchFunctionService.rangeSearch();
+        return "success";
+    }
+
+    @RequestMapping(value = "/testExistsSearch")
+    public String existsSearch()throws  Exception{
+        searchFunctionService.existsSearch();
+        return "success";
     }
 
 }
